@@ -2,6 +2,7 @@
 #define TODO_H
 
 #include <string>
+#include <format>
 
 class ToDo {
     public:
@@ -17,6 +18,9 @@ class ToDo {
         std::string getName();
         int getPriority();
         bool getStatus();
+
+        void finishTask();
+        void printTask();
 
     private:
 
@@ -63,6 +67,14 @@ void ToDo::setPriority(int newPriority){
 
 void ToDo::setStatus(bool status){
     done = status;
+}
+
+void ToDo::finishTask(){
+    done  = true;
+}
+
+void ToDo::printTask(){
+    std::cout << "Task\t|\t" + name + "\t|\t" + std::to_string(priority) + "\t|\t" + std::to_string(done) << std::endl;;
 }
 
 #endif
